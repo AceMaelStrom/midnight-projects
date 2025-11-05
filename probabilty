@@ -1,0 +1,51 @@
+import random
+def AorB(eventA,eventB):
+    if eventA + eventB == 1:
+        AandB = eventA*eventB
+        aorb = (eventA+eventB)-AandB
+        print("or prob= "+str(aorb))
+        return aorb
+    else:
+        print("LOL")
+        return None 
+if __name__ == "__main__":
+    a =float(input())
+    b =float(input())
+    AB =int(input())
+
+def AdependB(AA,BB,AB):
+    if AA + BB == 1 and AB == 1:
+        test = (AA*BB)/BB
+        print("This is P(A|B): "+ str(test))
+        return test
+    elif AA + BB == 1 and AB == 0:
+        test2 = (AA*BB)/AA
+        print("this is P(B|A): "+ str(test2))
+        return test2
+        
+    else:
+        print("LOLL")
+        return None
+        
+
+start = int(random.randint(-10,0))
+end = int(random.randint(0,10))
+
+def randomset(start,end):
+    bounds = [start,end]
+    for i in range(10):
+        bounds.append(random.uniform(start,end))
+    return bounds
+
+boundsfinal = list(randomset(start,end))
+
+for i in boundsfinal:
+    ideapad = randomset(start,end)
+    finalset =[]
+    finalset.append(ideapad)
+    
+
+randomset(float(random.randint(-10,0)),float(random.randint(0,10)))
+print(finalset)
+print("max is "+ str(max(finalset)))
+AdependB(a,b,AB)
