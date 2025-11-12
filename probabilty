@@ -38,10 +38,9 @@ def randomset(start,end):
     return bounds
 
 boundsfinal = list(randomset(start,end))
-
+finalset =[]
+ideapad = randomset(start,end)
 for i in boundsfinal:
-    ideapad = randomset(start,end)
-    finalset =[]
     finalset.append(ideapad)
     
 

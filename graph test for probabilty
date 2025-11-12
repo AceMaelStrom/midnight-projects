@@ -1,0 +1,46 @@
+import matplotlib.pyplot as plt
+from mpl_toolkits.mplot3d import Axes3D
+import numpy as np
+import time
+
+def loading(totaltime):
+    for i in totaltime:
+        
+print("Make a graph:")
+print("2d or 3d?; put the integer number please: ")
+dimension = int(input())
+if dimension == 2:
+    print("make sure to add a bounds to the graph")
+    index = int(input())
+    fig, graph = plt.subplots(figsize=(index,index))
+if dimension == 3:
+    print("make sure to add a bounds to the graph")
+    index = int(input())
+    fig = plt.figure(figsize=(index,index))
+    graph = fig.add_subplot(111, projection='3d')
+
+parameter = np.linspace(-10*np.pi,10*np.pi,150)
+print("please set the equivalent parameter bounds")
+paramput = int(input())
+z = np.linspace(-1*int(paramput),int(paramput),150)
+r = 2*np.e**np.cos(z)
+x = r*np.sin(parameter)**3
+y = r*np.cos(parameter)**3
+print("set the graph name lol")
+title = input().strip()
+graph.set_title(title)
+print("..and the X axis")
+graph.set_xlabel(str(input()))
+print("don't forget the Y axis!")
+graph.set_ylabel(str(input()))
+if dimension == 3:
+    print("and finally... the Z axis")
+    graph.set_zlabel(str(input()))
+    graph.plot(x,y,z, label='parametric')
+elif dimension == 2:
+    graph.plot(x,y)
+else:
+    print("nawr")
+    
+plt.show()
+
