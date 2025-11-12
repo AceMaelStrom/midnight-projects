@@ -2,9 +2,14 @@ import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 import numpy as np
 import time
+import random
 
 def loading(totaltime):
-    for i in totaltime:
+    for i in range(totaltime+1):
+        thebar = "[" + "#"*i + "-" * int((totaltime)-i) + "]"
+        time.sleep(int(totaltime*random.uniform(0.01,0.1)))
+        print(thebar,end='\r')
+
         
 print("Make a graph:")
 print("2d or 3d?; put the integer number please: ")
@@ -23,7 +28,7 @@ parameter = np.linspace(-10*np.pi,10*np.pi,150)
 print("please set the equivalent parameter bounds")
 paramput = int(input())
 z = np.linspace(-1*int(paramput),int(paramput),150)
-r = 2*np.e**np.cos(z)
+r = z*np.e**np.cos(z)
 x = r*np.sin(parameter)**3
 y = r*np.cos(parameter)**3
 print("set the graph name lol")
@@ -41,6 +46,8 @@ elif dimension == 2:
     graph.plot(x,y)
 else:
     print("nawr")
-    
+print("Loading...")
+loading(index)
+print("loaded.")
 plt.show()
 
